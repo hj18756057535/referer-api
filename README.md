@@ -13,9 +13,14 @@ yum安装nginx的路径
 (4) 访问日志：/var/log/nginx/access.log 
 
 (5) 默认站点目录：/usr/share/nginx/html
+    
+    
+    limit_req_zone $binary_remote_addr zone=mylimit:10m rate=1r/s;
 
     location / {
             proxy_pass https://referer.bj.baidubce.com;
+            limit_req zone=mylimit burst=1 nodelay;
+            limit_req_status 413;
     }
 使用百度云服务器nginx转发  客户端调用分解压力
 最大并发   15QPS 
