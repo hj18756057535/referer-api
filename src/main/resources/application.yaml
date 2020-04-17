@@ -1,3 +1,7 @@
 logging:
   level:
     org.apache.http.client.protocol.ResponseProcessCookies: error
+spring:
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml

@@ -2,6 +2,7 @@ package com.hj.baidu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -17,6 +18,7 @@ import java.util.List;
  * @author jie hong
  */
 @SpringBootApplication
+@EnableCaching
 public class RefererApiApplication {
 
     public static void main(String[] args) {

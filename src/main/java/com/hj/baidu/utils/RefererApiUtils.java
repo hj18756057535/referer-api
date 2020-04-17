@@ -8,6 +8,7 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -50,6 +51,7 @@ public class RefererApiUtils {
         }
     }
 
+    @Cacheable(value = "refererApiCache", key = "#eqid")
     public String getEqid(String eqid) {
         try {
             String requestUrl = "/v1/eqid/" + eqid;
